@@ -23,5 +23,7 @@ void rational_test();
 
 void complex_test();
 
+void stringvar_test();
+
 #endif //PROJ_TESTS_H
 

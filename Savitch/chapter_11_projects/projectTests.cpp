@@ -164,3 +164,59 @@ void complex_test()
 	cout << "a*b = " << a*b << "\n";
 	
 }
+
+void stringvar_test()
+{
+	StringVar test("this is a test string");
+	cout << "size of " << test << " is " << test.length() << "\n";
+	
+	for (int i=0; i < test.length()+1; i++)
+	{
+		cout << test.one_char(i) << " ";
+		if (test.one_char(i) == '\0')
+		{
+			cout << "termination character\n";
+		}
+	}
+	cout << "\n";
+	StringVar test_2 = test.copy_piece(2,11);
+	cout << test_2 << "\n"
+		 << "length of " << test_2 << " is " << test_2.length() << "\n";
+		 
+	for (int i=0; i<5; i++)
+	{
+		test.set_char(i,'x');
+	}
+	
+	cout << test << "\n";
+	
+	StringVar a("test1");
+	StringVar b("test2");
+	StringVar c(a);
+	
+	if (!(a == b))
+	{
+		cout << a << " and " << b << " not equal\n"; 
+	}
+	if (a == c)
+	{
+		cout << a << " and " << c << " are equal\n"; 
+	}
+	
+	a = b;
+	
+	if (a == b)
+	{
+		cout << a << " and " << b << " are equal\n"; 
+	}
+	if (!(a == c))
+	{
+		cout << a << " and " << c << " not equal\n"; 
+	}
+	
+	StringVar in_test;
+	cout << "enter a line of text: ";
+	cin >> in_test;
+	cout << "the first word is: " << in_test << "\n";
+	
+}

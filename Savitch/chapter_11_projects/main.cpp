@@ -8,7 +8,8 @@ int main()
 	//vector_double_test();
 	//percent_test();
 	//rational_test();
-	complex_test();
+	//complex_test();
+	stringvar_test();
 
 	return 0;
 }
