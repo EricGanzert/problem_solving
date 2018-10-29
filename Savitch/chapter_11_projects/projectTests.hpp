@@ -8,6 +8,7 @@
 #include <rational.hpp>
 #include <complexNumbers.hpp>
 #include <stringVar.hpp>
+#include <text.hpp>
 #include <iostream>
 #include <fstream>
 
@@ -24,6 +25,8 @@ void rational_test();
 void complex_test();
 
 void stringvar_test();
+
+void text_test();
 
 #endif //PROJ_TESTS_H
 

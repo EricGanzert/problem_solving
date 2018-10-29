@@ -19,7 +19,7 @@ StringVar::StringVar() : max_length(100)
 StringVar::StringVar(const char a[]) : max_length(strlen(a))
 {
 	value = new char[max_length+1];
-	value[max_length+1] = '\0';
+	value[max_length] = '\0';
 	strcpy(value, a);
 }
 
@@ -99,7 +99,7 @@ bool operator ==(const StringVar& left, const StringVar& right)
 
 StringVar operator +(const StringVar& left, const StringVar& right)
 {	
-	StringVar ret(left.length() + right.length());
+	StringVar ret(left.length() + right.length() + 1);
 	int index = 0;
 	for (int i=0; i<left.length(); i++)
 	{
@@ -111,6 +111,7 @@ StringVar operator +(const StringVar& left, const StringVar& right)
 		ret.set_char(index, right.one_char(i));
 		index++;
 	}
+	ret.value[ret.max_length] = '\0';
 	return ret;
 }
 
@@ -120,7 +121,7 @@ istream& operator >>(istream& ins, StringVar& right)
 	string temp;
 	ins >> temp;
 	right.max_length = temp.length();
-	right.value = new char[temp.length()];
+	right.value = new char[temp.length()+1];
 	
 	for (int i=0;i<temp.length();i++)
 	{
@@ -134,13 +135,13 @@ StringVar& StringVar::operator =(const StringVar& second)
 {
 	delete[] value;
 	max_length = second.max_length;
-	value = new char[max_length];
+	value = new char[max_length+1];
 	
 	for (int i=0;i<second.length();i++)
 	{
 		value[i] = second.one_char(i);
 	}
-	value[second.length()] = '\0';
+	value[second.max_length] = '\0';
 	return *this;
 }
 

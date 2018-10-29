@@ -170,7 +170,7 @@ void stringvar_test()
 	StringVar test("this is a test string");
 	cout << "size of " << test << " is " << test.length() << "\n";
 	
-	for (int i=0; i < test.length()+1; i++)
+	for (int i=0; i <= test.length(); i++)
 	{
 		cout << test.one_char(i) << " ";
 		if (test.one_char(i) == '\0')
@@ -218,5 +218,57 @@ void stringvar_test()
 	cout << "enter a line of text: ";
 	cin >> in_test;
 	cout << "the first word is: " << in_test << "\n";
+}
+
+void text_test()
+{
+	Text test("this is a test string");
+	cout << test << "\n";
 	
+	Text blank_text;
+	blank_text = Text("testing assignment operator");
+	cout << blank_text << "\n";
+	
+	for (int i=0;i<=test.length();i++)
+	{
+		if (test.one_string(i) == " ")
+		{
+			cout << "termination character\n";
+		}
+	}
+	
+	//~ Text test_input_line;
+	//~ cout << "enter a line of text\n";
+	//~ test_input_line.input_line(cin);
+	//~ cout << test_input_line << "\n";
+	
+	Text subText;
+	subText = test.copy_piece(1,3);
+	cout << "length of copy piece is: " << subText.length() << "\n";
+	cout << "copy_piece test: " << subText << "\n";
+	
+	test.set_string(0, (char*)"hello");
+	cout << test << "\n";
+	
+	cout << test.one_string(0) << "\n";
+	
+	test = blank_text;
+	cout << test << "\n";
+	
+	Text added;
+	added = test + subText;
+	cout << added << "\n";
+	
+	Text copy_text;
+	copy_text = test + subText;
+	
+	if (added == copy_text)
+	{
+		cout << "success\n";
+	}
+	
+	Text in_stream_test;
+	cout << "enter a line of text: ";
+	cin >> in_stream_test;
+	cout << in_stream_test;
 }

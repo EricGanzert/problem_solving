@@ -14,6 +14,7 @@ set(SOURCE_FILES main.cpp
 				 percent.cpp
 				 rational.cpp
 				 complexNumbers.cpp
-				 stringVar.cpp)
+				 stringVar.cpp
+				 text.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
