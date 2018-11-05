@@ -9,6 +9,7 @@
 #include <complexNumbers.hpp>
 #include <stringVar.hpp>
 #include <text.hpp>
+#include <polynomial.hpp>
 #include <iostream>
 #include <fstream>
 
@@ -27,6 +28,8 @@ void complex_test();
 void stringvar_test();
 
 void text_test();
+
+void polynomial_test();
 
 #endif //PROJ_TESTS_H
 

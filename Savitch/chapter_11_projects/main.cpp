@@ -10,7 +10,8 @@ int main()
 	//rational_test();
 	//complex_test();
 	//stringvar_test();
-	text_test();
+	//text_test();
+	polynomial_test();
 
 	return 0;
 }

@@ -1,4 +1,5 @@
 #include <projectTests.hpp>
+#include <vector>
 
 using namespace std;
 
@@ -266,9 +267,47 @@ void text_test()
 	{
 		cout << "success\n";
 	}
-	
+	 
 	Text in_stream_test;
 	cout << "enter a line of text: ";
 	cin >> in_stream_test;
 	cout << in_stream_test;
+}
+
+void polynomial_test()
+{
+	cout << "Testing Polynomial class\n\n";
+	Polynomial test(3);
+	test.set_coefficient(0, 0.5);
+	test.set_coefficient(1, 2);
+	test.set_coefficient(2, 3);
+	test.set_coefficient(3, 1);
+	
+	cout << test << "\n";
+	
+	vector<double> coefs;
+	coefs.push_back(0.1);
+	coefs.push_back(0.2);
+	coefs.push_back(0.3);
+	coefs.push_back(0.4);
+	Polynomial test2(coefs);
+	
+	cout << test2 << "\n";
+	
+	Polynomial test3(test2);
+	cout << test3 << "\n";
+	
+	Polynomial test4 = test3;
+	cout << test4 << "\n"; 
+	
+	cout << "evaluating " << test << " at x=2.2 ..." << test.evaluate(2.2) << "\n";
+	
+	Polynomial add1;
+	add1 = 4 - test;
+	cout << 4 << " - " << test << " = " << add1 << "\n";
+	
+	Polynomial test5;
+	test5 = test * test2;
+	cout << test << " * " << test2 << " = \n";
+	cout << test5 << "\n";
 }
