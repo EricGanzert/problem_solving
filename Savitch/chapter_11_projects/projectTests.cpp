@@ -1,4 +1,6 @@
 #include <projectTests.hpp>
+#include <iostream>
+#include <fstream>
 #include <vector>
 
 using namespace std;
@@ -310,4 +312,10 @@ void polynomial_test()
 	test5 = test * test2;
 	cout << test << " * " << test2 << " = \n";
 	cout << test5 << "\n";
+}
+
+
+void checkbook_test()
+{
+	balance_checkbook();
 }

@@ -4,7 +4,10 @@
 #include <iostream>
 #include <fstream>
 #include <cctype>
-using namespace std;
+
+typedef enum {
+	ERROR_MONEY_INPUT
+}money_error_t; 
 
 //Class for amounts of money in U.S. currency
 class Money
@@ -36,12 +39,12 @@ public:
 	
 	Money percent(int percent_figure);
 	
-	friend istream& operator >>(istream& ins, Money& amount);
+	friend std::istream& operator >>(std::istream& ins, Money& amount);
 	//overloads the >> operator so it can be used to input values of type Money.
 	//Notation for inputting negative amounts is as in -$100.00
 	//Precondition: If ins is a file input stream, then ins has already been connected to a file
 	
-	friend ostream& operator <<(ostream& outs, const Money& amount);
+	friend std::ostream& operator <<(std::ostream& outs, const Money& amount);
 	//Overloads the << operator so it can be used to output values of type Money
 	//Precedes each output value with a dollar sign
 	//Precondition: If outs is a file output stream, then outs is already connected to a file

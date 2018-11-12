@@ -11,7 +11,8 @@ int main()
 	//complex_test();
 	//stringvar_test();
 	//text_test();
-	polynomial_test();
+	//polynomial_test();
+	checkbook_test();
 
 	return 0;
 }

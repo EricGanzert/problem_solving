@@ -10,8 +10,7 @@
 #include <stringVar.hpp>
 #include <text.hpp>
 #include <polynomial.hpp>
-#include <iostream>
-#include <fstream>
+#include <checkbook.hpp>
 
 void money_test();
 
@@ -30,6 +29,8 @@ void stringvar_test();
 void text_test();
 
 void polynomial_test();
+
+void checkbook_test();
 
 #endif //PROJ_TESTS_H
 

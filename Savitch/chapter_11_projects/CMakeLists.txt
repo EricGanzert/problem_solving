@@ -16,6 +16,7 @@ set(SOURCE_FILES main.cpp
 				 complexNumbers.cpp
 				 stringVar.cpp
 				 text.cpp
-				 polynomial.cpp)
+				 polynomial.cpp
+				 checkbook.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

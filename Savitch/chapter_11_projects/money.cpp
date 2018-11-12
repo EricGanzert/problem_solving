@@ -29,7 +29,7 @@ istream& operator >>(istream& ins, Money& amount)
 	if (one_char != '$' || decimal_point != '.' || !isdigit(digit1) || !isdigit(digit2))
 	{
 		cout << "Error illegal form for money input\n";
-		exit(1);
+		throw ERROR_MONEY_INPUT;
 	}
 	
 	cents = digit_to_int(digit1) * 10 + digit_to_int(digit2);
@@ -37,6 +37,8 @@ istream& operator >>(istream& ins, Money& amount)
 	amount.all_cents = 100 * dollars + cents;
 	if (negative)
 		amount.all_cents = -amount.all_cents;
+	ins.clear();
+	ins.ignore(10000,'\n');
 	return ins;
 }
 
