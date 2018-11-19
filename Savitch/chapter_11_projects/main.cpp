@@ -12,7 +12,8 @@ int main()
 	//stringvar_test();
 	//text_test();
 	//polynomial_test();
-	checkbook_test();
+	//checkbook_test();
+	list_test();
 
 	return 0;
 }

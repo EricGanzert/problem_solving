@@ -319,3 +319,42 @@ void checkbook_test()
 {
 	balance_checkbook();
 }
+
+void list_test()
+{
+	List a;
+	a.add_item(4.05);
+	a.add_item(0.01);
+	cout << a;
+	if (a.full())
+	{
+		cout << "list is full\n";
+	}
+	else
+	{
+		cout << "list not full\n";
+	}
+	a.delete_last();
+	cout << a;
+	a.delete_last();
+	
+	for (int i=0; i<50; i++)
+	{
+		a.add_item(i+0.1);
+	}
+	cout << a;
+	
+	if (a.full())
+	{
+		cout << "list is full\n";
+	}
+	else
+	{
+		cout << "list not full\n";
+	}
+	
+	for (int i=0;i<50;i++)
+	{
+		cout << a.get_item(i) << "\n";
+	}
+}
