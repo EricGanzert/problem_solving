@@ -18,6 +18,7 @@ set(SOURCE_FILES main.cpp
 				 text.cpp
 				 polynomial.cpp
 				 checkbook.cpp
-				 list.cpp)
+				 list.cpp
+				 stringSet.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

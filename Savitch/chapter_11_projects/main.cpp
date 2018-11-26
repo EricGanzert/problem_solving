@@ -13,7 +13,8 @@ int main()
 	//text_test();
 	//polynomial_test();
 	//checkbook_test();
-	list_test();
+	//list_test();
+	string_set_test();
 
 	return 0;
 }

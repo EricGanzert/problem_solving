@@ -358,3 +358,21 @@ void list_test()
 		cout << a.get_item(i) << "\n";
 	}
 }
+
+void string_set_test()
+{
+	int num_strings = 10;
+	int num_strings_2 = 12;
+	string array[num_strings] = {"hello", "this", "is", "a", "test", "set", "of", "strings", "by", "Eric"};
+	string array_2[num_strings_2] = {"another", "set", "of", "strings", "this", "one", "has", "more", "elements", "than", "the", "other"};
+	
+	StringSet test(array, num_strings);
+	StringSet test_2(array_2, num_strings_2);
+	cout << "set 1: " << test << "\n";
+	cout << "set 2: " << test_2 << "\n";
+	StringSet combined = test + test_2;
+	cout << "set 1 + set 2: " << combined << "\n";
+	
+	StringSet in_common = test * test_2;
+	cout << "strings common to set 1 and set 2: " << in_common << "\n";
+}

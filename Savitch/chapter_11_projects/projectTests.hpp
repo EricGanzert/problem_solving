@@ -12,6 +12,7 @@
 #include <polynomial.hpp>
 #include <checkbook.hpp>
 #include <list.hpp>
+#include <stringSet.hpp>
 
 void money_test();
 
@@ -34,6 +35,8 @@ void polynomial_test();
 void checkbook_test();
 
 void list_test();
+
+void string_set_test();
 
 #endif //PROJ_TESTS_H
 

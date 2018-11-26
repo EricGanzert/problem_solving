@@ -39,7 +39,8 @@ bool Check::get_cashed()
 
 ostream& operator <<(ostream& out_stream, const Check& right)
 {
-	out_stream << "------------------------------\nCheck info:\nNumber: " << right.number << "\nAmount: " << right.amount << "\nCashed: ";
+	out_stream << "------------------------------\nCheck info:\nNumber: " 
+	<< right.number << "\nAmount: " << right.amount << "\nCashed: ";
 	if (right.cashed)
 	{
 		out_stream << "true\n";
