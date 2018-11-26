@@ -1,25 +1,8 @@
 #include <stringSet.hpp>
 #include <string.h>
+#include <ctype.h>
+#include <math.h>
 using namespace std;
-
-//~ class StringSet {
-//~ public:
-	//~ StringSet();
-	//~ StringSet(const std::string array[], int len);
-	//~ StringSet(const StringSet& copy);
-	//~ ~StringSet();
-	
-	//~ void add(std::string new_item);
-	//~ std::string remove(int index);
-	//~ int num_strings();
-	//~ void clear_set();
-	
-	//~ friend std::ostream& operator <<(std::ostream& outs, const StringSet the_set);
-	//~ friend StringSet operator +(const StringSet& left, const StringSet& right);
-	//~ friend StringSet operator *(const StringSet& left, const StringSet& right);
-	
-//~ private:
-	//~ std
 
 StringSet::StringSet() 
 {
@@ -30,7 +13,7 @@ StringSet::StringSet(const std::string array[], int len)
 {
 	for (int i=0; i<len; i++)
 	{
-		strings.push_back(array[i]);
+		strings.push_back(format_string(array[i]));
 	}
 }
 
@@ -39,7 +22,7 @@ StringSet::StringSet(const StringSet& copy)
 	int len = copy.strings.size();
 	for (int i=0; i<len; i++)
 	{
-		strings.push_back(copy.strings[i]);
+		strings.push_back(format_string(copy.strings[i]));
 	} 
 }
 
@@ -50,7 +33,7 @@ StringSet::~StringSet()
 
 void StringSet::add(std::string new_item)
 {
-	strings.push_back(new_item);
+	strings.push_back(format_string(new_item));
 }
 
 string StringSet::remove(int index)
@@ -70,14 +53,32 @@ void StringSet::clear_set()
 	strings.clear();
 }
 
-ostream& operator <<(ostream& outs, const StringSet& the_set)
+double StringSet::similarity(const StringSet& compare)
 {
-	int len = the_set.num_strings();
+	StringSet in_common = (*this) * compare;
+	double sim = (in_common.num_strings()) / (sqrt(this->num_strings()) * sqrt(compare.num_strings()));
+	return  sim;
+}
+
+ostream& operator <<(ostream& outs, const StringSet& right)
+{
+	int len = right.num_strings();
 	for (int i=0; i<len; i++)
 	{
-		outs << the_set.strings[i] << " ";
+		outs << right.strings[i] << " ";
 	}
 	return outs;
+}
+
+istream& operator >>(istream& ins, StringSet& right)
+{
+	right.clear_set();
+	string current;
+	while(ins >> current)
+	{
+		right.add(format_string(current));
+	}
+	return ins;
 }
 
 StringSet operator +(const StringSet& left, const StringSet& right)
@@ -107,4 +108,68 @@ StringSet operator *(const StringSet& left, const StringSet& right)
 		}
 	}
 	return ret;
+}
+
+string format_string(const string& raw_string)
+{
+	int len = raw_string.length();
+	string collect = "";
+	for (int i=0; i<len; i++)
+	{
+		char c = raw_string[i];
+		if (isalpha(c))
+		{
+			if (isupper(c))
+			{
+				collect += tolower(c);
+			}
+			else
+			{
+				collect += c;
+			}
+		}
+		else if (isdigit(c))
+		{
+			collect += c;
+		}
+	}
+	return collect;
+}
+
+StringSet get_query_from_user()
+{
+	StringSet ret;
+	string str;
+	cout << "Enter your search keywords and press enter : ";
+	getline(cin, str, '\n');
+	vector<string> all_str = str_split(str, " ");
+	for (int i=0; i<all_str.size(); i++)
+	{
+		ret.add(format_string(all_str[i]));
+	}
+	return ret;
+}
+
+vector<string> str_split(string str, string token)
+{
+    vector<string> result;
+    while(str.size() > 0)
+    {
+        int index = str.find(token);
+        if(index != string::npos)
+        {
+            result.push_back(str.substr(0,index));
+            str = str.substr(index+token.size());
+            if (str.size()==0) 
+            {
+				result.push_back(str);
+			}
+        }
+        else
+        {
+            result.push_back(str);
+            str = "";
+        }
+    }
+    return result;
 }

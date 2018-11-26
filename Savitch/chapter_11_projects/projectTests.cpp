@@ -361,6 +361,10 @@ void list_test()
 
 void string_set_test()
 {
+	string test_str = "Eric.s10 ";
+	cout << "test string raw: " << test_str << "\n";
+	cout << "formatted string: " << format_string(test_str) << "\n\n";
+	
 	int num_strings = 10;
 	int num_strings_2 = 12;
 	string array[num_strings] = {"hello", "this", "is", "a", "test", "set", "of", "strings", "by", "Eric"};
@@ -375,4 +379,36 @@ void string_set_test()
 	
 	StringSet in_common = test * test_2;
 	cout << "strings common to set 1 and set 2: " << in_common << "\n";
+	
+	cout << "the similarity is: " << test.similarity(test_2) << "\n";
+	
+	//get the data from the test files
+	StringSet document_1, document_2;
+	string file1 = "../Document1.txt";
+	string file2 = "../Document2.txt";
+	
+	ifstream ins;
+	ins.open(file1);
+	if (!ins.is_open())
+	{
+		cout << "ERROR: can't open test data file, exiting\n";
+		exit(1);
+	}
+	ins >> document_1;
+	ins.close();
+	
+	ins.open(file2);
+	if (!ins.is_open())
+	{
+		cout << "ERROR: can't open test data file, exiting\n";
+		exit(1);
+	}
+	ins >> document_2;
+	ins.close();
+	
+	StringSet query = get_query_from_user();
+	cout << "th formatted query is: " << query << "\n";
+	
+	cout << "query similarity to doc1: " << query.similarity(document_1) << "\n";
+	cout << "query similarity to doc2: " << query.similarity(document_2) << "\n";
 }

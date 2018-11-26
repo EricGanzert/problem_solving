@@ -16,13 +16,23 @@ public:
 	std::string remove(int index);
 	int num_strings() const;
 	void clear_set();
+	double similarity(const StringSet& compare);
 	
-	friend std::ostream& operator <<(std::ostream& outs, const StringSet& the_set);
+	friend std::ostream& operator <<(std::ostream& outs, const StringSet& right);
+	friend std::istream& operator >>(std::istream& ins, StringSet& right);
 	friend StringSet operator +(const StringSet& left, const StringSet& right);
 	friend StringSet operator *(const StringSet& left, const StringSet& right);
 	
 private:
 	std::vector<std::string> strings;
 };
+
+//removes punctuation and makes all chars lower case 
+std::string format_string(const std::string& raw_string);
+
+//uses std::cin
+StringSet get_query_from_user();
+
+std::vector<std::string> str_split(std::string str, std::string token);
 
 #endif //STRINGSET_H
