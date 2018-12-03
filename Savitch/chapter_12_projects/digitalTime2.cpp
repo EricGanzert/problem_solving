@@ -1,4 +1,4 @@
-#include <digitalTime.hpp>
+#include <digitalTime2.hpp>
 #include <cctype>
 
 using namespace std;
@@ -61,93 +61,84 @@ namespace
 		}
 	}
 	
+	void hour_and_minute_to_all_minutes(int hour, int minute, int& result_minutes)
+	{
+		int gross_minutes = hour * 60 + minute;
+		result_minutes = gross_minutes % 1440;
+	}
+	
+	void all_minutes_to_hour_and_minute(int minutes, int& result_hour, int& result_minute)
+	{
+		result_hour = minutes / 60;
+		result_minute = minutes % 60;
+	}
+	
 }//unnamed namespace
 
-namespace d_time_eric
+namespace d_time2_eric
 {
 	bool operator ==(const DigitalTime& time1, const DigitalTime& time2)
 	{
-		return (time1.hour == time2.hour && time1.minute == time2.minute);
+		return (time1.minutes == time2.minutes);
 	}
 	
 	//uses iostream and cstdlib
 	DigitalTime::DigitalTime(int the_hour, int the_minute)
 	{
-		if (the_hour < 0 || the_hour > 23 || the_minute < 0 || the_minute > 59)
-		{
-			cout << "Illegal argument to DigitalTime constructor\n";
-			exit(1);
-		}
-		else
-		{
-			hour = the_hour;
-			minute = the_minute;
-		}
+		hour_and_minute_to_all_minutes(the_hour, the_minute, this->minutes);
 	}
 	
-	DigitalTime::DigitalTime() : hour(0), minute(0)
+	DigitalTime::DigitalTime() : minutes(0)
 	{
 		//empty
 	}
 	
 	void DigitalTime::advance(int minutes_added)
 	{
-		int gross_minutes = minute + minutes_added;
-		minute = gross_minutes % 60;
-		
-		int hour_adjustment = gross_minutes / 60;
-		hour = hour_adjustment % 24;
+		int gross_minutes = minutes + minutes_added;
+		minutes = gross_minutes % 1440;
 	}
 	
 	void DigitalTime::advance(int hours_added, int minutes_added)
 	{
-		hour = hours_added % 24;
-		advance(minutes_added);
+		advance(hours_added*60 + minutes_added);
 	}
 	
 	ostream& operator <<(ostream& outs, const DigitalTime& the_object)
 	{
-		outs << the_object.hour << ":";
-		if (the_object.minute < 10)
+		int hour, minute;
+		all_minutes_to_hour_and_minute(the_object.minutes, hour, minute);
+		
+		outs << hour << ":";
+		if (minute < 10)
 		{
 			outs << "0";
 		}
-		outs << the_object.minute;
+		outs << minute;
 		return outs;
 	}
 	
 	istream& operator >>(istream& ins, DigitalTime& the_object)
 	{
-		read_hour(ins, the_object.hour);
-		read_minute(ins, the_object.minute);
+		int hour, minute;
+		read_hour(ins, hour);
+		read_minute(ins, minute);
+		the_object = DigitalTime(hour, minute);
 		return ins;
 	}
 	
 	void DigitalTime::interval_since(const DigitalTime& a_previous_time,
 		int& hours_in_interval, int& minutes_in_interval) const
 	{
-		int hour_diff = this->hour - a_previous_time.hour;
-		int minute_diff = this->minute - a_previous_time.minute;
-			
-		if (hour_diff >= 0) //same day
+		int minutes_diff = this->minutes - a_previous_time.minutes;
+		
+		if (minutes_diff < 0) //previous day
 		{
-			hours_in_interval = hour_diff;
-		}
-		else //previous day
-		{
-			hours_in_interval = 24 + hour_diff;
+			minutes_diff = 1440 + minutes_diff;
 		}
 		
-		if (minute_diff >= 0)
-		{
-			minutes_in_interval = minute_diff;
-		}
-		else
-		{
-			hours_in_interval -= 1;
-			minutes_in_interval = 60 + minute_diff;
-		}
+		all_minutes_to_hour_and_minute(minutes_diff, hours_in_interval, minutes_in_interval);
 	}
 	
-}//d_time_eric
+}//d_time2_eric
 

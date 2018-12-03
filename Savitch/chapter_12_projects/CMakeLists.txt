@@ -7,6 +7,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 set(SOURCE_FILES main.cpp
 				 projectTests.cpp
-				 digitalTime.cpp)
+				 digitalTime.cpp
+				 digitalTime2.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
