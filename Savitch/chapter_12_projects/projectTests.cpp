@@ -1,7 +1,6 @@
 #include <projectTests.hpp>
 using namespace std;
-//~ using d_time_eric::DigitalTime;
-//~ using d_time2_eric::DigitalTime;
+using namespace Authenticate;
 
 void digital_time_test()
 {
@@ -21,4 +20,12 @@ void digital_time2_test()
 	cout << "the time from " << past
 		<< " to " << current << "\nis " << hours << " hours and " 
 		<< minutes << " minutes.\n";
+}
+
+void username_password_test()
+{
+	inputUserName();
+	inputPassword();
+	cout << "Your username is " << getUserName() 
+		<< " and  your password is " << getPassword() << "\n";
 }
