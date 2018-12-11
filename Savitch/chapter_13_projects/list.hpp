@@ -22,6 +22,13 @@ namespace eric_single_linked_list
 	void reverse_list(NodePtr& head);
 	//precondition: head points to the head of a linked list of nodes
 	//postcondition: head points to the head of the list reversed
+	
+	NodePtr merge_lists(NodePtr& first, NodePtr& second);
+	//precondition: both pointers are to linked lists sorted
+	//in order from smallest to largest
+	//postcondition: returns a pointer to the head of a list 
+	//that has all the elements from the 2 arg lists sorted from
+	//smallest to largest
 }
 
 namespace eric_double_linked_list

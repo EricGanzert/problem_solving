@@ -1,6 +1,42 @@
 #include <list.hpp>
 #include <cstddef>
 
+namespace
+{
+	void select_lowest(eric_single_linked_list::NodePtr& ref,
+		eric_single_linked_list::NodePtr& first,
+		eric_single_linked_list::NodePtr& second)
+	{
+		if (first != NULL && second != NULL) //they both have nodes remaining
+		{
+			if (first->data < second->data)
+			{
+				ref = first;
+				first = first->link;
+			}
+			else
+			{
+				ref = second;
+				second = second->link;
+			}
+		}
+		else if (first != NULL && second == NULL) //only first has nodes remaining
+		{
+			ref = first;
+			first = first->link;
+		}
+		else if (first == NULL && second != NULL) //only second has nodes remaining
+		{
+			ref = second;
+			second = second->link;
+		}
+		else
+		{
+			ref = NULL;
+		}
+	}
+}
+
 namespace eric_single_linked_list
 {
 	void head_insert(NodePtr& head, int the_number)
@@ -70,5 +106,24 @@ namespace eric_single_linked_list
 		}
 		head = c;
 		c->link = a;
+	}
+	
+	NodePtr merge_lists(NodePtr& first, NodePtr& second)
+	{	
+		NodePtr result;
+		select_lowest(result, first, second);
+		
+		NodePtr iter = result;
+		
+		while (first != NULL || second != NULL)
+		{
+			select_lowest(iter->link, first, second);
+			iter = iter->link;
+		}
+		
+		iter = NULL;
+		first = NULL;
+		second = NULL;
+		return result;
 	}
 }

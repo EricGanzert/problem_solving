@@ -4,6 +4,7 @@
 #include <node.hpp>
 #include <stack.hpp>
 #include <queue.hpp>
+#include <polynomial.hpp>
 
 void node_class_test();
 
@@ -12,6 +13,10 @@ void stack_test();
 void queue_test();
 
 void list_reverse_test();
+
+void list_merge_test();
+
+void polynomial_test();
 
 #endif //PROJ_TESTS_H
 

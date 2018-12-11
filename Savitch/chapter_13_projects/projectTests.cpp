@@ -6,6 +6,19 @@ using namespace linked_list_of_clases;
 using namespace eric_stack;
 using namespace eric_queue;
 
+namespace
+{
+	void output_list(eric_single_linked_list::NodePtr head)
+	{
+		while(head != NULL)
+		{
+			cout << head->data << " ";
+			head = head->link;
+		}
+		cout << "\n";
+	}
+}
+
 void head_insert(NodePtr& head, int the_number)
 {
 	NodePtr temp = new Node(the_number, head);
@@ -123,3 +136,62 @@ void list_reverse_test()
 	}	
 }
 
+void list_merge_test()
+{
+	eric_single_linked_list::NodePtr head1, head2;
+	head1 = NULL;
+	head2 = NULL;
+	
+	
+	for (int i=10; i>0; i--) 
+	{
+		if (i%2)
+			eric_single_linked_list::head_insert(head1, i);
+		else
+			eric_single_linked_list::head_insert(head2, i);
+	}
+	
+	output_list(head1);
+	output_list(head2);
+	
+	eric_single_linked_list::NodePtr merged;
+	merged = merge_lists(head1, head2);
+	
+	output_list(merged);
+}
+
+void polynomial_test()
+{
+	poly_eric::Polynomial p;
+	cout << "Enter polynomial...\nNeeds constant term at the end even if 0\n"
+		<< "always use ^ to specify power, unless its a constant term\n";
+	cin >> p;
+	cout << p << " evaluated at x=2 is " << p.evaluate(2) << "\n";
+	
+	poly_eric::Polynomial poly1(3, 2);
+	poly_eric::Polynomial poly2(2, 1);
+	poly_eric::Polynomial poly3(1, 0);
+	poly_eric::Polynomial poly4(4, 2);
+	
+	//cout << poly1 << "\n" << poly2 << "\n" << poly3 << "\n";
+	
+	poly_eric::Polynomial sum = poly1 + poly2;
+	poly_eric::Polynomial sum2 = poly3 + poly1 + poly4 + poly2;
+	cout << "(" << sum << ") + (" << sum2 << ") = " << sum + sum2 << "\n";
+	
+	cout << "(" << sum << ") + (5) = " << sum + 5 << "\n";
+	
+	cout << "(-5) + (" << sum << ") = " << -5 + sum << "\n";
+	
+	cout << "(" << sum << ") - (" << sum2 << ") = " << sum - sum2 << "\n";
+	
+	cout << "(" << sum << ") - (5) = " << sum - 5 << "\n";
+	
+	cout << "(-5) - (" << sum << ") = " << -5 - sum << "\n";
+	
+	cout << "(" << sum << ") * (" << sum2 << ") = " << sum * sum2 << "\n";
+	
+	cout << "(" << sum << ") * (5) = " << sum * 5 << "\n";
+	
+	cout << "(-5) * (" << sum << ") = " << -5 * sum << "\n";
+}
