@@ -195,3 +195,54 @@ void polynomial_test()
 	
 	cout << "(-5) * (" << sum << ") = " << -5 * sum << "\n";
 }
+
+void list_class_test()
+{
+	eric_single_linked_list::List l;
+	
+	for (int i=0; i<15; i++)
+	{
+		l.add_item(i + 0.1);
+	}
+	cout << l;
+	cout << "the size of this list is " << l.get_size() << "\n";
+	for (int i=0; i<l.get_size(); i++)
+	{
+		cout << "the " << i << " index item is " << l.get_item(i) << "\n";
+	}
+	cout << "the last item is: " << l.get_last() << "\n";
+	l.delete_last();
+	cout << "Just deleted the last item. Now the size is " << l.get_size() << " and the list is as follows:\n"
+		<< l;
+		
+	//~ while (l.get_size() > 0)
+	//~ {
+		//~ l.delete_last();
+	//~ }
+	//~ cout << "Deleted all items. The size is " << l.get_size() << " and the list is as follows:\n"
+		//~ << l;
+		
+	eric_single_linked_list::List one_item;
+	one_item.add_item(9.001);
+	
+	eric_single_linked_list::List empty_list;
+	
+	cout << "Result of get_last on a one-item list: " << one_item.get_last() << "\n";
+	
+	l.reset();
+	for (int i=0; i<l.get_size(); i++)
+	{
+		cout << "current is " << l.get_current() << "\n";
+		l.advance();
+	}
+	l.reset();
+	l.advance();
+	l.advance();
+	
+	l.insert(l.get_front(), 1.0);
+	l.insert(l.get_current(), 3.0);
+	l.insert(l.get_last(), 2.0);
+	cout << "After some insertions the list is\n"
+		<< l;
+	
+}

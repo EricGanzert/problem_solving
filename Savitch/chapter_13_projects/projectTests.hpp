@@ -18,5 +18,7 @@ void list_merge_test();
 
 void polynomial_test();
 
+void list_class_test();
+
 #endif //PROJ_TESTS_H
 
