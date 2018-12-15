@@ -11,6 +11,8 @@ set(SOURCE_FILES main.cpp
 				 node.cpp
 				 stack.cpp
 				 queue.cpp
-				 polynomial.cpp)
+				 polynomial.cpp
+				 suitor.cpp
+				 computerLab.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

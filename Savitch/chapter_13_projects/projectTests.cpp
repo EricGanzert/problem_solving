@@ -244,5 +244,20 @@ void list_class_test()
 	l.insert(l.get_last(), 2.0);
 	cout << "After some insertions the list is\n"
 		<< l;
-	
+}
+
+void suitor_select_test()
+{
+	SuitorSelect s(1);
+	cout << s << "\n";
+	int chosen = s.select();
+	cout << "the result is " << chosen << "\n";
+}
+
+void computer_lab_test()
+{
+	using namespace lab_eric;
+	init_labs();
+	//display_labs();
+	simulate();
 }
