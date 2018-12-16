@@ -7,6 +7,7 @@
 #include <polynomial.hpp>
 #include <suitor.hpp>
 #include <computerLab.hpp>
+#include <dmv.hpp>
 
 void node_class_test();
 
@@ -25,6 +26,8 @@ void list_class_test();
 void suitor_select_test();
 
 void computer_lab_test();
+
+void dmv_test();
 
 #endif //PROJ_TESTS_H
 

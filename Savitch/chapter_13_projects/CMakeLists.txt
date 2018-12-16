@@ -13,6 +13,7 @@ set(SOURCE_FILES main.cpp
 				 queue.cpp
 				 polynomial.cpp
 				 suitor.cpp
-				 computerLab.cpp)
+				 computerLab.cpp
+				 dmv.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

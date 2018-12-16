@@ -10,7 +10,8 @@ int main()
 	//polynomial_test();
 	//list_class_test();
 	//suitor_select_test();
-	computer_lab_test();
+	//computer_lab_test();
+	dmv_test();
 	
 	return 0;
 }

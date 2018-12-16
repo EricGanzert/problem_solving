@@ -3,8 +3,6 @@
 
 using namespace std;
 using namespace linked_list_of_clases;
-using namespace eric_stack;
-using namespace eric_queue;
 
 namespace
 {
@@ -53,6 +51,7 @@ void node_class_test()
 
 void stack_test()
 {
+	using namespace eric_stack;
 	Stack s;
 	char next;
 	
@@ -82,6 +81,7 @@ void stack_test()
 
 void queue_test()
 {
+	using namespace eric_queue;
 	Queue q;
 	char next;
 	cout << "Enter a word: ";
@@ -261,3 +261,40 @@ void computer_lab_test()
 	//display_labs();
 	simulate();
 }
+
+void dmv_test()
+{
+	using namespace dmv;
+	DMVQueue q;
+	char c;
+	
+	cout << "the line is empty\n";
+	while (1)
+	{
+		cout << "Enter '1' to simulate a customer's arrival, '2' to help the"
+			<< "\nnext customer, or 'q' to quit.\n";
+		cin >> c;
+		cin.ignore(10000, '\n');
+		if (c == '1')
+		{
+			int current = q.add();
+			cout << "Customer " << current << " entered the queue at time " 
+				<< get_timestamp() << ".\n";
+		}
+		else if (c == '2')
+		{
+			int current = q.remove();
+			cout << "Customer " << current << " is being helped at time " 
+				<< get_timestamp() << ". Wait time is " << q.check_wait() << "\n";			
+		}
+		else if (c == 'q')
+		{
+			break;
+		}
+	}
+}
+
+
+
+
+
