@@ -8,6 +8,7 @@
 #include <suitor.hpp>
 #include <computerLab.hpp>
 #include <dmv.hpp>
+#include <graph.hpp>
 
 void node_class_test();
 
@@ -28,6 +29,8 @@ void suitor_select_test();
 void computer_lab_test();
 
 void dmv_test();
+
+void graph_test();
 
 #endif //PROJ_TESTS_H
 

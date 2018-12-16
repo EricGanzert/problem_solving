@@ -294,7 +294,12 @@ void dmv_test()
 	}
 }
 
-
+void graph_test()
+{
+	using namespace graph_eric;
+	init_graph();
+	enter_maze();
+}
 
 
 

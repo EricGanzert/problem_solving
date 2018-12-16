@@ -11,7 +11,8 @@ int main()
 	//list_class_test();
 	//suitor_select_test();
 	//computer_lab_test();
-	dmv_test();
+	//dmv_test();
+	graph_test();
 	
 	return 0;
 }

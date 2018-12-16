@@ -14,6 +14,7 @@ set(SOURCE_FILES main.cpp
 				 polynomial.cpp
 				 suitor.cpp
 				 computerLab.cpp
-				 dmv.cpp)
+				 dmv.cpp
+				 graph.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
