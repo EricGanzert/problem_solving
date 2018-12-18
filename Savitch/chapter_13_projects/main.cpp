@@ -12,7 +12,9 @@ int main()
 	//suitor_select_test();
 	//computer_lab_test();
 	//dmv_test();
-	graph_test();
+	//graph_test();
+	//RPNtest();
+	infix_eval_test();
 	
 	return 0;
 }

@@ -15,6 +15,11 @@ set(SOURCE_FILES main.cpp
 				 suitor.cpp
 				 computerLab.cpp
 				 dmv.cpp
-				 graph.cpp)
+				 graph.cpp
+				 reversePolishNotation.cpp
+				 stackInt.cpp
+				 stackString.cpp
+				 queueString.cpp
+				 evaluateInfix.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

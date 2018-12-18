@@ -301,5 +301,24 @@ void graph_test()
 	enter_maze();
 }
 
+void RPNtest()
+{
+	using namespace eric_rpn;
+	
+	RPNcalculator calc;
+	cout << "enter the equation one item per line:\n";
+	cin >> calc;
+	
+}
+
+void infix_eval_test()
+{
+	using namespace eric_infix_eval;
+	
+	SolveInfix calc;
+	cout << "enter the equation one item per line:\n";
+	cin >> calc;	
+}
+
 
 
