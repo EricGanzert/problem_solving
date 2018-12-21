@@ -1,5 +1,6 @@
 #ifndef PROJECT_FUNCTIONS_H
 #define PROJECT_FUNCTIONS_H
+#include <string>
 
 int nth_fibonacci(int n);
 
@@ -38,5 +39,19 @@ void swap(int a[], int index1, int index2);
 
 void swap_sort(int a[], int low_index, int num_elements);
 //ascending sort recurtsive using swap
+
+void jump_it(int board_size);
+
+int choose_jump(int* game_board, int index, int board_size);
+
+int chocolate_bars(int dollars);
+
+int redeem(int coupons);
+
+int handshake(int n);
+
+bool palindrome(std::string str);
+
+bool str_index_match(std::string str, int index1, int index2);
 
 #endif //PROJECT_FUNCTIONS_H

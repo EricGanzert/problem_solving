@@ -195,3 +195,40 @@ void hanoi_test()
 {
 	towers_of_hanoi(10);
 }
+
+void jump_test()
+{
+	jump_it(15);
+}
+
+void chocolate_bars_test()
+{
+	int total_money = 20;
+	int bars = chocolate_bars(total_money);
+	cout << "For $" << total_money << " you can get " << bars << " chocolate bars\n";
+}
+
+void permutations_test()
+{
+	vector<vector<int> > perms = get_permutations(0);
+	display_permutations(perms);
+}
+
+void handshake_test()
+{
+	int number = 3;
+	cout << "if there are " << number << " people in a room there are " << handshake(number) << " handshakes\n";
+}
+
+void palindrome_test()
+{
+	std::string test = "abecdcba";
+	if (palindrome(test))
+	{
+		cout << test << " is a palindrome\n";
+	}
+	else
+	{
+		cout << test << " is not a palindrome\n";
+	}
+}

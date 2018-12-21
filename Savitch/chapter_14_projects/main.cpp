@@ -15,6 +15,12 @@ int main()
 	//reverse_array_test();
 	//combinations_test_iter();
 	//swap_sort_test();
-	hanoi_test();
+	//hanoi_test();
+	//jump_test();
+	//chocolate_bars_test();
+	//permutations_test();
+	//handshake_test();
+	palindrome_test();
+	
 	return 0;
 }

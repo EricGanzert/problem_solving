@@ -3,6 +3,8 @@
 #include <iomanip>
 #include <algorithm>
 #include <cstdlib>
+#include <stdlib.h>
+#include <time.h>
 
 int nth_fibonacci(int n)
 {
@@ -145,5 +147,103 @@ void swap_sort(int a[], int low_index, int num_elements)
 		int small_index = index_of_smallest(a, low_index, num_elements);
 		swap(a, low_index, small_index);
 		swap_sort(a, low_index+1, num_elements);
+	}
+}
+
+void jump_it(int board_size)
+{
+	//make the game board: 0 then random numbers
+	int* game_board = new int[board_size];
+	game_board[0] = 0;
+	srand (time(NULL));
+	
+	for (int i=1; i<board_size; i++)
+	{
+		game_board[i] = rand() % 100;
+	}
+	int index = 0;
+	int total_score = 0;
+	
+	total_score = choose_jump(game_board, index, board_size);
+	
+	std::cout << "Here is the game board: \n";
+	for (int i=0; i<board_size; i++)
+	{
+		std::cout << "|" << game_board[i] << "|" << " ";
+	}
+	std::cout << "\nThe lowest possible score is " << total_score << "\n";
+	
+	delete [] game_board; 
+}
+
+int choose_jump(int* game_board, int index, int board_size)
+{
+	if (index == board_size-1)
+	{
+		return game_board[index];
+	}
+	else if (index == board_size-2)
+	{
+		return game_board[index] + choose_jump(game_board, index+1, board_size);
+	}
+	else
+	{
+		if (game_board[index+1] < game_board[index+2])
+		{
+			return game_board[index] + choose_jump(game_board, index+1, board_size);
+		}
+		else
+		{
+			return game_board[index] + choose_jump(game_board, index+2, board_size);
+		}
+	}
+}
+
+int chocolate_bars(int dollars)
+{
+	int bars = dollars;
+	int coupons = bars;
+	
+	return bars + redeem(coupons);
+}
+
+int redeem(int coupons)
+{
+	if (coupons < 7)
+	{
+		return 0;
+	}
+	else
+	{
+		return (coupons / 7) + redeem(coupons / 7 + coupons % 7);
+	}
+}
+
+int handshake(int n)
+{
+	return combinations(n, 2);
+}
+
+bool palindrome(std::string str)
+{
+	return str_index_match(str, 0, str.length()-1);
+}
+
+bool str_index_match(std::string str, int index1, int index2)
+{
+	if (index1 == index2 || index1 > index2)
+	{
+		return true;
+	}
+	else
+	{
+		if (str[index1] == str[index2])
+		{
+			return str_index_match(str, index1+1, index2-1);
+		}
+		else
+		{
+			return false;
+		}
 	}
 }

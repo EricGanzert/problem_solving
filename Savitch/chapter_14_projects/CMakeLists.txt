@@ -13,6 +13,7 @@ set(SOURCE_FILES main.cpp
 				 binarySearch.cpp
 				 projectFunctions.cpp
 				 towersHanoi.cpp
-				 stackString.cpp)
+				 stackString.cpp
+				 permutations.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
