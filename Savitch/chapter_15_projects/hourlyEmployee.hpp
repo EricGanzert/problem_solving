@@ -16,11 +16,13 @@ namespace employee_eric
 		HourlyEmployee(const HourlyEmployee& copy);
 		virtual ~HourlyEmployee();
 		
+		HourlyEmployee& operator =(const HourlyEmployee& right);
+		
 		void set_rate(double new_wage_rate);
 		double get_rate() const;
 		void set_hours(double hours_worked);
 		double get_hours() const;
-		void print_check();
+		virtual void print_check();
 		
 	private:
 		double wage_rate;

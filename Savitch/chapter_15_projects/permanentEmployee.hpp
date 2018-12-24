@@ -14,6 +14,8 @@ namespace employee_eric
 		PermanentEmployee(const PermanentEmployee& copy);
 		virtual ~PermanentEmployee();
 		
+		PermanentEmployee& operator =(const PermanentEmployee& right);
+		
 		void set_health_benefits(std::string new_benefits);
 		std::string get_health_benefits() const;
 		
@@ -22,7 +24,7 @@ namespace employee_eric
 		void set_severance(int new_severance);
 		int get_severance() const;
 		
-		virtual void print_check() const;
+		virtual void print_check();
 		
 	protected:
 		std::string health_benefits_id;

@@ -26,6 +26,19 @@ namespace employee_eric
 		//empty
 	}
 	
+	Employee& Employee::operator =(const Employee& right)
+	{
+		name = right.name;
+		ssn = right.ssn;
+		net_pay = right.net_pay;
+		return *this;
+	}
+	
+	bool operator ==(const Employee& left, const Employee& right)
+	{
+		return (left.name == right.name && left.ssn == right.ssn);
+	}
+	
 	string Employee::get_name() const
 	{
 		return name;
@@ -56,7 +69,7 @@ namespace employee_eric
 		net_pay = new_net_pay;
 	}
 	
-	void Employee::print_check() const
+	void Employee::print_check()
 	{
 		cout << "Error: undifferentiated employee print_check()\n";
 		exit(1); 

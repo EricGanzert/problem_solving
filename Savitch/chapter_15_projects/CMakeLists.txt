@@ -16,6 +16,15 @@ set(SOURCE_FILES main.cpp
 				 discountSale.cpp
 				 administrator.cpp
 				 temporaryEmployee.cpp
-				 permanentEmployee.cpp)
+				 permanentEmployee.cpp
+				 doctor.cpp
+				 person.cpp
+				 vehicle.cpp
+				 truck.cpp
+				 car.cpp
+				 sportsCar.cpp
+				 patient.cpp
+				 billing.cpp
+				 figure.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

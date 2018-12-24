@@ -14,7 +14,7 @@ namespace employee_eric
 		Administrator(const Administrator& copy);
 		~Administrator();
 		
-		void operator =(const Administrator& right);
+		Administrator& operator =(const Administrator& right);
 		void set_supervisor(std::string new_supervisor);
 		std::string get_supervisor() const;
 		void input_info();

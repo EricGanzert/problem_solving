@@ -33,6 +33,13 @@ namespace employee_eric
 		//empty
 	}
 	
+	TemporaryEmployee& TemporaryEmployee::operator =(const TemporaryEmployee& right)
+	{
+		Employee::operator=(right);
+		contract_expiry_date = right.contract_expiry_date;
+		return *this;
+	}
+	
 	void TemporaryEmployee::set_expiry_date(string new_expiry_date)
 	{
 		contract_expiry_date = new_expiry_date;
@@ -49,7 +56,7 @@ namespace employee_eric
 		cin >> contract_expiry_date;
 	}
 	
-	void TemporaryEmployee::print_check() const
+	void TemporaryEmployee::print_check()
 	{
 		std::cout << "Error: undifferentiated temporary employee print_check()\n";
 		exit(1); 

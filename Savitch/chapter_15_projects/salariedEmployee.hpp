@@ -16,9 +16,11 @@ namespace employee_eric
 		SalariedEmployee(const SalariedEmployee& copy);
 		virtual ~SalariedEmployee();
 		
+		SalariedEmployee& operator =(const SalariedEmployee& right);
+		
 		double get_salary() const;
 		void set_salary(double new_salary);
-		void print_check();
+		virtual void print_check();
 		
 	protected:
 		double salary; //weekly

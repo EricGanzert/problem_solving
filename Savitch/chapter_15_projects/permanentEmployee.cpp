@@ -25,12 +25,20 @@ namespace employee_eric
 	PermanentEmployee::PermanentEmployee(const PermanentEmployee& copy)
 		: Employee(copy), health_benefits_id(copy.health_benefits_id), severance(copy.severance)
 	{
-		
+		//empty
 	}
 	
 	PermanentEmployee::~PermanentEmployee()
 	{
 		//empty
+	}
+	
+	PermanentEmployee& PermanentEmployee::operator =(const PermanentEmployee& right)
+	{
+		Employee::operator=(right);
+		health_benefits_id = right.health_benefits_id;
+		severance = right.severance;
+		return *this;
 	}
 	
 	void PermanentEmployee::set_health_benefits(std::string new_benefits)
@@ -61,7 +69,7 @@ namespace employee_eric
 		return severance;
 	}
 	
-	void PermanentEmployee::print_check() const
+	void PermanentEmployee::print_check()
 	{
 		std::cout << "Error: undifferentiated permanent employee print_check()\n";
 		exit(1); 		

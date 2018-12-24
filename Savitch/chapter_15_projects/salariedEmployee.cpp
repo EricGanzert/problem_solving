@@ -34,6 +34,13 @@ namespace employee_eric
 		//empty
 	}
 	
+	SalariedEmployee& SalariedEmployee::operator =(const SalariedEmployee& right)
+	{
+		PermanentEmployee::operator=(right);
+		salary = right.salary;
+		return *this;
+	}
+	
 	double SalariedEmployee::get_salary() const
 	{
 		return salary;

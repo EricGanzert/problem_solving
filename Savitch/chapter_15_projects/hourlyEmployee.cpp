@@ -34,6 +34,14 @@ namespace employee_eric
 		//empty
 	}
 	
+	HourlyEmployee& HourlyEmployee::operator =(const HourlyEmployee& right)
+	{
+		TemporaryEmployee::operator =(right);
+		wage_rate = right.wage_rate;
+		hours = right.hours;
+		return *this;
+	}
+	
 	void HourlyEmployee::set_rate(double new_wage_rate)
 	{
 		wage_rate = new_wage_rate;

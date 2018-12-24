@@ -29,6 +29,15 @@ namespace employee_eric
 		//empty
 	}
 	
+	Administrator& Administrator::operator =(const Administrator& right)
+	{
+		SalariedEmployee::operator =(right);
+		title = right.title;
+		area_of_responsibility = right.area_of_responsibility;
+		supervisor = right.supervisor;
+		return *this;
+	}
+	
 	void Administrator::set_supervisor(string new_supervisor)
 	{
 		supervisor = new_supervisor;

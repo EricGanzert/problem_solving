@@ -14,11 +14,13 @@ namespace employee_eric
 		TemporaryEmployee(const TemporaryEmployee& copy);
 		virtual ~TemporaryEmployee();
 		
+		TemporaryEmployee& operator =(const TemporaryEmployee& right);
+		
 		void set_expiry_date(std::string new_expiry_date);
 		std::string get_expiry_date() const;
 		void input_temporary_employee_info();
 		
-		virtual void print_check() const;
+		virtual void print_check();
 		
 	protected:
 		std::string contract_expiry_date;
