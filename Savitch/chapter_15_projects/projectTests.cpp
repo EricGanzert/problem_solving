@@ -192,9 +192,78 @@ void patient_billing_test()
 	d.print_bill(cout);
 	a_copy.print_bill(cout);
 	c_copy.print_bill(cout);
-	
-	
-	
-	
 }
 
+void figure_test()
+{
+	using namespace figure_eric;
+	Triangle tri(8, 25, Point(20, 0));
+	tri.draw();
+	cout << "Derived class Triangle object calling center( ).\n";
+	tri.center();
+	cout << "\n";
+	Rectangle rect(6, 10, Point(12, 3));
+	rect.draw();
+	cout << "Derived class Rectangle object calling center( ).\n";
+	rect.center();
+}
+
+void bank_account_test()
+{
+	using namespace bank_eric;
+	BankAccount eric("eric", 20000);
+	MoneyMarketAccount tim("Tim", 50000);
+	CDAccount joe("Joe", 10000, 0.12);
+	
+	cout << "Joe's balance: " << joe.get_balance() << "\n";
+	cout << "Tim's balance: " << tim.get_balance() << "\n";
+	for (int i=0; i<3; i++)
+	{
+		cout << "Transferring $100 from Joe to Tim\n";
+		transfer(100, joe, tim);
+	}
+	cout << "Joe's balance: " << joe.get_balance() << "\n";
+	cout << "Tim's balance: " << tim.get_balance() << "\n";
+	
+	for (int i=0; i<3; i++)
+	{
+		cout << "Transferring $100 from Tim to Joe\n";
+		transfer(100, tim, joe);
+	}
+	cout << "Joe's balance: " << joe.get_balance() << "\n";
+	cout << "Tim's balance: " << tim.get_balance() << "\n";
+	cout << "Eric's balance: " << eric.get_balance() << "\n";
+	
+	for (int i=0; i<3; i++)
+	{
+		cout << "Transferring $100 from Eric to Joe\n";
+		transfer(100, eric, joe);
+	}	
+	cout << "Joe's balance: " << joe.get_balance() << "\n";
+	cout << "Eric's balance: " << eric.get_balance() << "\n";
+	
+	for (int i=0; i<3; i++)
+	{
+		cout << "Transferring $100 from Joe to Eric\n";
+		transfer(100, joe, eric);
+	}	
+	cout << "Joe's balance: " << joe.get_balance() << "\n";
+	cout << "Eric's balance: " << eric.get_balance() << "\n";
+	cout << "Tim's balance: " << tim.get_balance() << "\n";
+
+	for (int i=0; i<3; i++)
+	{
+		cout << "Transferring $100 from Eric to Tim\n";
+		transfer(100, eric, tim);
+	}	
+	cout << "Tim's balance: " << tim.get_balance() << "\n";
+	cout << "Eric's balance: " << eric.get_balance() << "\n";
+	
+	for (int i=0; i<3; i++)
+	{
+		cout << "Transferring $100 from Tim to Eric\n";
+		transfer(100, tim, eric);
+	}
+	cout << "Tim's balance: " << tim.get_balance() << "\n";
+	cout << "Eric's balance: " << eric.get_balance() << "\n";
+}

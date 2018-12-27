@@ -1,17 +1,26 @@
 #ifndef FIGURE_H
 #define FIGURE_H
+#include <vector>
+#include <iostream>
 
 namespace figure_eric
 {
-	class CenterPoint
+	class Point
 	{
 	public:
-		CenterPoint();
-		CenterPoint(int the_x, int the_y);
-		CenterPoint(const CenterPoint& copy);
-		CenterPoint& operator =(const CenterPoint& copy);
+		Point();
+		Point(int the_x, int the_y);
+		Point(const Point& copy);
+		Point& operator =(const Point& copy);
 		
-		friend bool operator ==(const CenterPoint& left, const CenterPoint& right);
+		friend std::ostream& operator <<(std::ostream& outs, const Point& right);
+		
+		friend bool operator ==(const Point& left, const Point& right);
+		void set_x(int new_x);
+		int get_x();
+		void set_y(int new_y);
+		int get_y();
+		
 	private:
 		int x;
 		int y;
@@ -21,45 +30,46 @@ namespace figure_eric
 	{
 	public:
 		Figure();
-		void center();
-		void erase();
-		void draw();
+		virtual void center();
+		virtual void erase();
+		virtual void draw();
+		void display(const std::vector<Point>& marked);
 	};
 	
 	class Rectangle : public Figure
 	{
 	public:
 		Rectangle();
-		Rectangle(int the_height, int the_width, CenterPoint the_center);
+		Rectangle(int the_height, int the_width, Point the_center);
 		Rectangle(const Rectangle& copy);
 		Rectangle& operator =(const Rectangle& right);
 		
-		void center();
-		void erase();
-		void draw();
+		virtual void center();
+		virtual void erase();
+		virtual void draw();
 		
 	private:
 		int height;
 		int width;
-		CenterPoint position;
+		Point position;
 	};
 
 	class Triangle : public Figure
 	{
 	public:
 		Triangle();
-		Triangle(int the_height, int the_width, CenterPoint the_center);
+		Triangle(int the_height, int the_width, Point the_center);
 		Triangle(const Triangle& copy);
 		Triangle& operator =(const Triangle& right);
 		
-		void center();
-		void erase();
-		void draw();
+		virtual void center();
+		virtual void erase();
+		virtual void draw();
 		
 	private:
 		int height;
 		int width;
-		CenterPoint position;
+		Point position;
 	};
 }
 

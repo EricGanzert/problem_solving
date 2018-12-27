@@ -14,6 +14,8 @@
 #include <doctor.hpp>
 #include <patient.hpp>
 #include <billing.hpp>
+#include <figure.hpp>
+#include <bankAccount.hpp>
 
 void employee_test();
 
@@ -28,6 +30,10 @@ void vehicle_test();
 void car_test();
 
 void patient_billing_test();
+
+void figure_test();
+
+void bank_account_test();
 
 #endif //PROJ_TESTS_H
 
