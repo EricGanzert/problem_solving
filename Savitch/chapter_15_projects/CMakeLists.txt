@@ -26,6 +26,8 @@ set(SOURCE_FILES main.cpp
 				 patient.cpp
 				 billing.cpp
 				 figure.cpp
-				 bankAccount.cpp)
+				 bankAccount.cpp
+				 shippingContainer.cpp
+				 predatorPrey.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

@@ -267,3 +267,53 @@ void bank_account_test()
 	cout << "Tim's balance: " << tim.get_balance() << "\n";
 	cout << "Eric's balance: " << eric.get_balance() << "\n";
 }
+
+void shipping_container_test()
+{
+	using namespace shipping_eric;
+	ShippingContainer* array[6];
+	
+	array[0] = new ManualShippingContainer(5242, "a bunch of apples");
+	array[1] = new ManualShippingContainer(8322, "a bunch of oranges");
+	array[2] = new ManualShippingContainer(2345, "a few watermelons");
+	
+	array[3] = new RFIDShippingContainer(1112);
+	RFIDShippingContainer* rfid_scanner = dynamic_cast<RFIDShippingContainer*>(array[3]);
+	rfid_scanner->add_item("crate of apples");
+	rfid_scanner->add_item("crate of apples");
+	rfid_scanner->add_item("crate of soap");
+	
+	array[4] = new RFIDShippingContainer(3366);
+	rfid_scanner = dynamic_cast<RFIDShippingContainer*>(array[4]);
+	rfid_scanner->add_item("one elephant");
+	rfid_scanner->add_item("one tiger");
+	rfid_scanner->add_item("one elephant");
+	
+	array[5] = new RFIDShippingContainer(6345);
+	rfid_scanner = dynamic_cast<RFIDShippingContainer*>(array[5]);
+	rfid_scanner->add_item("lumber pile");
+	rfid_scanner->add_item("chainsaw");
+	rfid_scanner->add_item("bucket of nails");
+	
+	for (int i=0; i<6; i++)
+	{
+		cout << array[i]->get_manifest() << "\n\n";
+	}
+}
+
+void predator_prey_test()
+{
+	using namespace predator_prey;
+	
+	GameBoard game;
+	game.display();
+	
+	int time_steps = 0;
+	
+	while (time_steps < 1000)
+	{
+		game.time_step();
+		game.display();
+		cin.ignore();
+	}
+}

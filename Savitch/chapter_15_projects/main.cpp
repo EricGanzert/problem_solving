@@ -10,7 +10,9 @@ int main()
 	//car_test();
 	//patient_billing_test();
 	//figure_test();
-	bank_account_test();
+	//bank_account_test();
+	//shipping_container_test();
+	predator_prey_test();
 	
 	return 0;
 }

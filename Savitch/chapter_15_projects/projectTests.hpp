@@ -16,6 +16,8 @@
 #include <billing.hpp>
 #include <figure.hpp>
 #include <bankAccount.hpp>
+#include <shippingContainer.hpp>
+#include <predatorPrey.hpp>
 
 void employee_test();
 
@@ -34,6 +36,10 @@ void patient_billing_test();
 void figure_test();
 
 void bank_account_test();
+
+void shipping_container_test();
+
+void predator_prey_test();
 
 #endif //PROJ_TESTS_H
 
