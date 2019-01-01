@@ -18,6 +18,8 @@
 #include <bankAccount.hpp>
 #include <shippingContainer.hpp>
 #include <predatorPrey.hpp>
+#include <guessingGame.hpp>
+#include <queueInt.hpp>
 
 void employee_test();
 
@@ -40,6 +42,10 @@ void bank_account_test();
 void shipping_container_test();
 
 void predator_prey_test();
+
+void guessing_game_test();
+
+void int_queue_test(); 
 
 #endif //PROJ_TESTS_H
 

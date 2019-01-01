@@ -12,7 +12,9 @@ int main()
 	//figure_test();
 	//bank_account_test();
 	//shipping_container_test();
-	predator_prey_test();
+	//predator_prey_test();
+	//guessing_game_test();
+	int_queue_test();
 	
 	return 0;
 }

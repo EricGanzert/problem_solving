@@ -28,6 +28,8 @@ set(SOURCE_FILES main.cpp
 				 figure.cpp
 				 bankAccount.cpp
 				 shippingContainer.cpp
-				 predatorPrey.cpp)
+				 predatorPrey.cpp
+				 guessingGame.cpp
+				 queueInt.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

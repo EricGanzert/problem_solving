@@ -314,3 +314,54 @@ void predator_prey_test()
 		cin.ignore();
 	}
 }
+
+void guessing_game_test()
+{
+	using namespace guessing_game;
+	
+	vector<ComputerPlayer> tournament;
+	for (uint32_t i=0; tournament.size() < 20; i++)
+	{
+		tournament.push_back("Player number " + to_string(i));
+	}
+	
+	for (uint32_t i=0; i<tournament.size(); i++)
+	{
+		for (uint32_t j=0; j<tournament.size(); j++)
+		{
+			if (i!=j)
+			{
+				play(tournament[i], tournament[j]);
+				cout << "GAME OVER\n";
+			}
+		}
+	}
+	
+	ComputerPlayer* winner = &tournament[0];
+	for (uint32_t i=1; i<tournament.size(); i++)
+	{
+		if (tournament[i].get_wins() > winner->get_wins())
+		{
+			winner = &tournament[i];
+		}
+	}
+	
+	cout << "the winner is " << winner->get_name() << " with " << winner->get_wins() << " wins\n"; 
+}
+
+void int_queue_test()
+{
+	using namespace eric_queue_int;
+	srand(time(NULL));
+	Queue q; 
+	
+	for (int i=0;i<100;i++)
+	{
+		q.add(rand() % 1000);
+	}
+	
+	while(!q.empty())
+	{
+		cout << q.remove() << "\n";
+	}
+}
