@@ -302,15 +302,12 @@ void shipping_container_test()
 }
 
 void predator_prey_test()
-{
+{	
 	using namespace predator_prey;
 	
 	GameBoard game;
 	game.display();
-	
-	int time_steps = 0;
-	
-	while (time_steps < 1000)
+	while(1)
 	{
 		game.time_step();
 		game.display();

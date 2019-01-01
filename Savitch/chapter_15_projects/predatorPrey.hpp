@@ -20,11 +20,10 @@ namespace predator_prey
 		
 		virtual void move();
 		virtual void breed();
-		
 		friend class GameBoard;
 		
 	protected:
-		GameBoard* board;
+		GameBoard* board;	
 		int x;
 		int y;
 		int time_alive;
@@ -60,28 +59,33 @@ namespace predator_prey
 		int time_since_eating;
 	};
 	
-	class GameBoard
+	class GameBoard 
 	{
 	public:
 		GameBoard();
-		GameBoard(const GameBoard& copy);
-		GameBoard& operator =(const GameBoard& right);
-		virtual ~GameBoard();
-		void time_step();
+		~GameBoard();
 		void display();
 		
-		friend void swap(GameBoard* a, GameBoard* b);
-		friend class Ant;
-		friend class DoodleBug;
-	private:
 		bool is_ant(int x, int y);
 		bool is_doodle_bug(int x, int y);
-		bool find_empty_adjacent(Organism* ref, int& x, int& y);
-		bool find_adjacent_ant(Organism* ref, int& x, int& y);
 		
-		Organism*** array;
-		std::vector<Ant> ants;
-		std::vector<DoodleBug> doodle_bugs;
+		void time_step();
+		friend class Ant;
+		friend class DoodleBug;
+		
+	private:
+		void add_ant(int x, int y);
+		void add_doodle_bug(int x, int y);
+		
+		bool find_empty_adjacent(Organism* ref, int& new_x, int& new_y);
+		bool find_adjacent_ant(Organism* ref, int& new_x, int& new_y);
+		void get_random_adjacent(Organism* ref, int& x, int& y);
+		
+		void erase_organism(Organism* &remove);
+		std::vector<std::vector<Organism*> > array;
+		
+		std::vector<Ant*> ants;
+		std::vector<DoodleBug*> doodle_bugs; 
 	};
 }
 
