@@ -19,7 +19,7 @@ namespace time_convert_eric
 	{
 	public:
 		TwelveHourTime();
-		void input();
+		void input() throw(TimeFormatMistake);
 		void output();
 	private:
 		int hour;

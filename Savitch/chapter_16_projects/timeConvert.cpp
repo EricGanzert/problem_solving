@@ -39,7 +39,7 @@ namespace time_convert_eric
 		//empty
 	}
 	
-	void TwelveHourTime::input()
+	void TwelveHourTime::input() throw(TimeFormatMistake)
 	{
 		string raw_input;
 		getline(cin, raw_input);

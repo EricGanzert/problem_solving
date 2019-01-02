@@ -8,3 +8,10 @@ void time_convert_test()
 	
 	convert();
 }
+
+void date_convert_test()
+{
+	using namespace date_convert_eric;
+	
+	convert();
+}
