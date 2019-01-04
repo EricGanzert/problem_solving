@@ -15,3 +15,12 @@ void date_convert_test()
 	
 	convert();
 }
+
+void numeric_hist_test()
+{
+	using namespace numeric_value_eric;
+	
+	NumericValues v;
+	v.input();
+	v.output_hist();
+}
