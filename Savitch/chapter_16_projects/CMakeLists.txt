@@ -9,6 +9,10 @@ set(SOURCE_FILES main.cpp
 				 projectTests.cpp
 				 timeConvert.cpp
 				 convertDate.cpp
-				 numericHist.cpp)
+				 numericHist.cpp
+				 checkedArray.cpp
+				 stack.cpp
+				 callingDepth.cpp
+				 bank.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
