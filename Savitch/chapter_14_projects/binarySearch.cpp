@@ -5,10 +5,11 @@ namespace recursive_binary_search
 	void search(const int a[], int first, int last,
 		int key, bool& found, int& location)
 	{
+		found = false;
 		int mid;
 		if (first > last)
 		{
-			found = false;
+			return;
 		}
 		else
 		{
