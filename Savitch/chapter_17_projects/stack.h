@@ -6,13 +6,17 @@ namespace eric_stack
 	class StackOverflowException {};
 	class StackEmptyException {};
 	
+	template<typename T>
 	struct StackFrame
 	{
-		char data;
+		T data;
 		StackFrame *link;
 	};
-	typedef StackFrame* StackFramePtr;
 	
+	template<typename T>
+	using StackFramePtr = StackFrame<T>*;
+	
+	template<class T>
 	class Stack
 	{
 	public:
@@ -27,10 +31,10 @@ namespace eric_stack
 		~Stack();
 		//Destroys the stack and returns all the memory
 		
-		void push(char the_symbol) throw(StackOverflowException);
+		void push(T the_symbol) throw(StackOverflowException);
 		//adds the symbol to the top of the stack
 		
-		char pop() throw(StackEmptyException);
+		T pop() throw(StackEmptyException);
 		//removes and returns the top symbol of the stack
 		
 		bool empty() const;
@@ -38,7 +42,7 @@ namespace eric_stack
 	private:
 		int capacity;
 		int size;
-		StackFramePtr top;
+		StackFramePtr<T> top;
 	};
 }//eric_stack
 

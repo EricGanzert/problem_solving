@@ -176,3 +176,114 @@ void binary_search_recursive_test()
 		cout << key << " is not in the array\n";
 	}
 }
+
+void stack_test()
+{
+	using namespace eric_stack;
+	
+	Stack<char> s;
+	
+	string test = "this is a test string\n";
+	
+	for (uint32_t i=0;i<test.length();i++)
+	{
+		s.push(test[i]);
+		cout << test[i] << "\n";
+	}
+	
+	while (!s.empty())
+	{		
+		cout << s.pop() << "\n";
+	}	
+}
+
+void priority_queue_test()
+{
+	using namespace eric_priority_queue;
+	
+	Queue<char> q;
+	
+	char c = 'z';
+	for (int i=26; i>0; i--)
+	{
+		q.add(c,i);
+		c--;
+	}
+	
+	while(!q.empty())
+	{
+		cout << q.remove() << "\n";
+	}
+}
+
+void set_test()
+{
+	using namespace set_eric;
+	
+	Set<string> set_str;	
+	set_str.add(static_cast<string>("this"));
+	set_str.add(static_cast<string>("is"));
+	set_str.add(static_cast<string>("a"));
+	set_str.add(static_cast<string>("test"));
+	set_str.add(static_cast<string>("set"));
+	
+	cout << "size of string set is " << set_str.num_items() << "\n";
+	set_str.add(static_cast<string>("test"));
+	cout << "after adding a redundant item size is " << set_str.num_items() << "\n";
+	
+	if (set_str.has_item(static_cast<string>("set")))
+	{
+		if (!set_str.has_item(static_cast<string>("eric")))
+		{
+			cout << "has item works\n";
+		}
+	}
+	
+	string* arr = set_str.get_array();
+	
+	for (int i=0;i<set_str.num_items();i++)
+	{
+		cout << arr[i] << "\n";
+	}
+	delete [] arr;
+}
+
+void permutations_test()
+{
+	using namespace set_eric;
+	vector<int> v;
+	for (int i=1;i<=3;i++)
+	{
+		v.push_back(i);
+	}
+	
+	Set<vector<int> > result = get_permutations(v, v.size());
+	display_permutations(result);
+}
+
+
+void map_test()
+{
+	using namespace eric_map;
+	Map<string, int> m;
+	m.add("Eric", 1);
+	m.add("Carl", 2);
+	m.add("Scott", 3);
+	
+	cout << m << "\n";
+	
+	m.set("Eric", 14);
+	
+	cout << m << "\n";
+	
+	m.remove("Carl");
+	
+	cout << m << "\n";
+	
+	if (m.find("Scott"))
+	{
+		cout << "Scott is in the map\n";
+	}
+	
+	cout << "Eric's number is " << m.retrieve("Eric") << "\n";
+}

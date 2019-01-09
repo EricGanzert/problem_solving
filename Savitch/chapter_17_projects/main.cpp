@@ -8,5 +8,9 @@ int main()
 	//selection_sort_test();
 	//binary_search_test();
 	//binary_search_recursive_test();
+	//priority_queue_test();
+	//set_test();
+	//permutations_test();
+	map_test();
 	return 0;
 }
