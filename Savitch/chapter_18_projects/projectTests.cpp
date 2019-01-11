@@ -6,10 +6,10 @@
 #include <vector>
 #include <algorithm>
 #include <set>
+#include <map>
 #include <numeric>
 #include <math.h>
 #include <list>
-#include <fstream>
 using namespace std;
 
 void sortDeque()
@@ -251,28 +251,66 @@ void permutations_test()
 
 void movie_ratings_test()
 {
-	string filepath = "../movies.txt";
-	ifstream ins;
-	ins.open(filepath);
-	if (ins.fail())
+	using namespace movies_eric;
+	string file = "../movies.txt";
+	try
 	{
-		cout << "could not find file\n";
-		exit(1);
+		movie_ratings(file);
 	}
-	int num_ratings = 0;
+	catch(FileNotFound)
+	{
+		cout << "file " << file << " not found\n";
+	}
+	catch(FormatError)
+	{
+		cout << "Error in movie review format\n";
+	}
+}
+
+void invitation_list_test()
+{
+	using namespace invitation_eric;
+	string filepath = "../names.txt";
+	get_invites(filepath);
+}
+
+void histogram_test()
+{
+	map<int, int> m;
 	string line;
-	getline(cin,line);
-	if (!line.empty() && line.find_first_not_of("0123456789") == line.npos)
+	
+	cout << "Enter numbers or 'q' when finished\n";
+	while(1)
 	{
-		num_ratings = stoi(line);
-	}
-	else
-	{
-		
+		getline(cin,line);
+		if (!line.empty() && line.find_first_not_of("0123456789 ") == line.npos)
+		{
+			stringstream ss(line);
+			string chunk;
+			while (ss >> chunk)
+			{
+				int num = stoi(chunk);
+				map<int, int>::iterator it;
+				it = m.find(num);
+				if (it!=m.end())
+				{
+					it->second++;
+				}
+				else
+				{
+					m.insert(make_pair(num,1));
+				}				
+			}
+		}
+		else if (line.find('q') != line.npos || line.find('q') != line.npos)
+		{
+			break;
+		}
 	}
 	
-	while (getline(cin,line))
+	map<int,int>::iterator it;
+	for (it=m.begin(); it!=m.end(); ++it)
 	{
-		
+		cout << "The number " << it->first << " appears " << it->second << " times.\n";
 	}
 }

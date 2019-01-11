@@ -9,6 +9,8 @@ int main()
 	//stringset();
 	//bookDatabaseTest();
 	//permutations_test();
-	movie_ratings_test();
+	//movie_ratings_test();
+	//invitation_list_test();
+	histogram_test();
 	return 0;
 }

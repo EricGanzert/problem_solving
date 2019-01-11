@@ -8,6 +8,8 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 set(SOURCE_FILES main.cpp
 				 projectTests.cpp
 				 bookDatabase.cpp
-				 permutations.cpp)
+				 permutations.cpp
+				 movies.cpp
+				 invitationList.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
