@@ -72,7 +72,7 @@ namespace wcount_eric
 	}
 			
 		
-	string WordReader::get_filepath()
+	string WordReader::get_filepath() const
 	{
 		return filepath;
 	}
@@ -115,13 +115,13 @@ namespace wcount_eric
 	}
 	
 	
-	const unordered_map<string,int>& WordReader::get_words()
+	const unordered_map<string,int>& WordReader::get_words() const
 	{
 		return words;
 	}
 	
 	
-	uint64_t WordReader::get_total_count()
+	uint64_t WordReader::get_total_count() const
 	{
 		return total_count;
 	}

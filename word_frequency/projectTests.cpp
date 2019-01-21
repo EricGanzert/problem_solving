@@ -148,13 +148,13 @@ namespace wcount_eric
 		
 		vector<pair<string, int> > most_common = reader.get_most_common();
 		
-		if (most_common.size() < 10 && reader.get_total_count() > 10)
+		if (most_common.size() < 10 && reader.get_words().size() > 10)
 		{
 			cout << "not enough common words\n";
 			return false;
 		}
 		
-		//lets see if the results areat most 10 and in descending order
+		//lets see if the results are in descending order
 		vector<pair<string,int> >::const_iterator it;
 		it = most_common.begin();
 		int current = it->second;

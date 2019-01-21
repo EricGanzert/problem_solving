@@ -15,7 +15,7 @@ int main(int argc, char** argv)
 		catch (wcount_eric::FileError e)
 		{
 			cout << e.get_message() << "\n";
-			return 0;
+			return 1;
 		}
 		reader.display_most_common();
 	}

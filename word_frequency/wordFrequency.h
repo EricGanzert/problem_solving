@@ -30,7 +30,7 @@ namespace wcount_eric
 		void set_filepath(std::string new_filepath);
 		
 		//returns the current filepath
-		std::string get_filepath();
+		std::string get_filepath() const;
 		
 		//connects a file input stream to the given filepath 
 		//and reads the contents into our unordered_map.
@@ -38,10 +38,10 @@ namespace wcount_eric
 		void load_file() throw(FileError);
 		
 		//returns a constant reference to the unordered_map
-		const std::unordered_map<std::string,int>& get_words();
+		const std::unordered_map<std::string,int>& get_words() const;
 		
 		//returns the total number of words in the file loaded
-		uint64_t get_total_count();
+		uint64_t get_total_count() const;
 		
 		//returns the 10 most common words and their count
 		//will return less than 10 if there were less than 10 words in the file
