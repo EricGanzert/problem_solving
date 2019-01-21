@@ -1,0 +1,30 @@
+
+Linux environment (recommended):
+
+1) Open a terminal and navigate to word_frequency directory
+2) In word_frequency directory make a directory called build: "mkdir build"
+3) Inside build directory enter: "cmake .."
+4) Enter: "make"
+5) To run the program enter "./wcount path_to_your_file"
+
+requires that cmake and gcc/g++ is installed
+cmake version >= 2.8
+settings in CMakeLists.txt: -std=c++11 -g -Wall -O0
+
+**Discussion about the project:
+
+At first I just read all the words in the file parsing by spaces, then saved those words in lowercase removing all non-alphabet characters.
+Which was simple but the problem was that words connected by symbols were joined together for example
+"test-driven-development" was saved as "testdrivendevelopment". This isn't ideal for english text you would see in a book 
+(where it happens relatively rarely). But it's way worse when parsing code source files where separate words are frequently 
+joined by symbols such as in "foo()->bar.get_foo()" being saved as "foobargetfoo". Wherein it should be 2 "foo",
+1 "bar" and 1 "get" saved seperately. To fix this I split the strings by non-alphabet characters. 
+The improved method is not quite as fast as the simpler one but it's definetely worth it to get a more accurate count.
+
+Another trade off is how to provide the most common words. I decided to use an unordered_map for fast loading of the file contents.
+I thought of storing the words initally in an ordered structure but that's not a good idea because every insert would be O(log(n)) instead of O(1).
+When the most common words are requested(for the first time), a sorted vector of word-count pairs is made which the class holds alongside the unordered_map.
+and the 10 most common are returned in a vector to the user. If the user asks for the most common words again, the sorted vector doesn't have to be re-made.
+and the trade off there is that we save time although the class has to hold that additional memory for the sorted vector.
+  
+
