@@ -18,7 +18,7 @@ namespace
 		}
 		
 		//if the string contains non-alphabet characters we will break it down here
-		uint32_t index=0;
+		size_t index=0;
 		while ((index=str.find_first_not_of("abcdefghijklmnopqrstuvwxyz")) != string::npos)
 		{
 			if (index != 0)
